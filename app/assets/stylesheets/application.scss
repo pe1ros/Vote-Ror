@@ -29,9 +29,15 @@
  .header{
     width: 100%;
  } 
+ .navbar-inverse{
+     background-color: lightblue;
+ }
  .pull-right li{
      padding-left: 20px;
  }
+ .pull-right li a{
+    color: black;
+}
  .new_user{
      padding-left: 20px;
  } 

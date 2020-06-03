@@ -3,3 +3,5 @@ tr
   td = phrase.phrase
   td = phrase.translation
   td = phrase.category
+  - if author
+    td = link_to phrase.user.username, user_path(phrase.user)

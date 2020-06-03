@@ -5,6 +5,7 @@ class UsersController < ApplicationController
          else
           current_user
          end
+         @phrases = @user.phrases
     end
 
     def index 

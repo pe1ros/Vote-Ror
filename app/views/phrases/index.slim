@@ -6,11 +6,13 @@ table.table.table-striped
     th Id
     th Phrase
     th Translation
-    th Category 
+    th Category
+    th Author 
 
 
   - @phrases.each do |phrase|
-    = render phrase 
+    = render phrase, author: true 
 
+a> href='/phrases/new' Add new phrase  
  
 = will_paginate @phrases, renderer: BootstrapPagination::Rails

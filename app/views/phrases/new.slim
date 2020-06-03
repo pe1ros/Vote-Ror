@@ -13,6 +13,6 @@
   .form-group
     = f.label :category
     br
-    = f.select :category, Phrase::CATEGORIES, {}, { :class => 'form-control' }
+    = f.select :category, Phrase::CATEGORIES.map{ |key, value| [key.humanize, key] }, {}, { :class => 'form-control' }
  
   = f.submit 'Submit', :class => 'btn btn-primary'
