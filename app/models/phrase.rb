@@ -13,4 +13,9 @@ class Phrase < ApplicationRecord
               }
   
     enum category: %w(Actions Time Productivity Apologies Common)
+
+    def author?(user)
+        self.user == user
+    end
+
 end

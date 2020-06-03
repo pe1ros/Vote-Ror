@@ -1,11 +1,7 @@
 class UsersController < ApplicationController
     def show  
-        @user = if params[:id]
-            User.find_by(id: params[:id])
-         else
-          current_user
-         end
-         @phrases = @user.phrases
+        @user = User.find_by(id: params[:id]) 
+        @phrases = @user.phrases
     end
 
     def index 
