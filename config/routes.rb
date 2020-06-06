@@ -7,11 +7,12 @@ Rails.application.routes.draw do
 
   root to: 'phrases#index' 
   
-  resources :phrases, only: [:new, :create, :edit, :update, :destroy] 
-  
-  get 'phrases/:id' => 'phrases#destroy'
-  get 'static_pages/hello'=> 'static_pages#hello'
   resources :users, only: [:show, :index]
+  resources :phrases do
+    resources :examples, only: [:create, :destroy]
+  end 
+  
+  get 'static_pages/hello'=> 'static_pages#hello'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -1,6 +1,6 @@
 tr
-    th = user.id
-    th = user.username
-    th = user.email
-    th = date_formatter user.created_at
-    th = date_formatter user.updated_at
+    td = user.id
+    td = link_to user.username, user_path(user)
+    td = user.email
+    td = date_formatter user.created_at
+    td = date_formatter user.updated_at

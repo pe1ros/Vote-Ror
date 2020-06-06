@@ -17,6 +17,8 @@ gem 'will_paginate-bootstrap4'
 gem 'devise' 
 
 gem 'bootstrap-sass' 
+gem 'friendly_id', '~> 5.2.4'
+
 
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
