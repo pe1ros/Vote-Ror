@@ -18,7 +18,7 @@ gem 'devise'
 
 gem 'bootstrap-sass' 
 gem 'friendly_id', '~> 5.2.4'
-
+gem "websocket-extensions", ">= 0.1.5"
 
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
