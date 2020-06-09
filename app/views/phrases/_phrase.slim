@@ -10,4 +10,13 @@ tr
       - if phrase.is_author? current_user
         = link_to 'edit', edit_phrase_path(phrase)
         '  |
-        = link_to 'delete', phrase, method: :delete
+        = link_to 'delete', phrase, class: 'delete_phrase', method: :delete
+      - else
+        -
+  td
+    = link_to vote_phrase_path(phrase, vote: 'up'), method: :post do
+      div
+        p like
+    | #{ phrase.get_likes.size - phrase.get_dislikes.size }
+    = link_to vote_phrase_path(phrase, vote: 'down'), method: :post do
+      div  dislike

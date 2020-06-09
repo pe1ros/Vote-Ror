@@ -1,5 +1,5 @@
 class PhrasesController < ApplicationController
-  before_action :set_phrase!, only: [:edit, :update, :destroy, :show]
+  before_action :set_phrase!, only: [:edit, :update, :destroy, :show, :vote]
   before_action :check_user_before_example_deletion!, only: [:delete_example]
 
   def index
@@ -52,7 +52,12 @@ class PhrasesController < ApplicationController
     end
     redirect_to phrase_path
   end
-  
+
+  def vote
+    shared_vote(@phrase)
+    redirect_back fallback_location: root_path
+  end
+
   private
 
   def phrase_params 
@@ -65,7 +70,7 @@ class PhrasesController < ApplicationController
   end
 
   def check_user!
-    unless @phrase.author? current_user
+    unless @phrase.is_author? current_user
       flash[:danger] = 'You don\'t author of phrase, go away!'
       redirect_to(:back)
     end

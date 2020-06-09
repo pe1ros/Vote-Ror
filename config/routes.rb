@@ -8,8 +8,14 @@ Rails.application.routes.draw do
   root to: 'phrases#index' 
   
   resources :users, only: [:show, :index]
+  
   resources :phrases do
-    resources :examples, only: [:create, :destroy]
+    member do
+      post :vote
+    end
+    resources :examples, only: [:create, :destroy] do
+      post :vote
+    end
   end 
   
   get 'static_pages/hello'=> 'static_pages#hello'

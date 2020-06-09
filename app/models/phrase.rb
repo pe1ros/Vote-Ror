@@ -20,4 +20,6 @@ class Phrase < ApplicationRecord
     enum category: %w(Actions Time Productivity Apologies Common)
 
     friendly_id :phrase, use: :slugged 
+    
+    acts_as_votable
 end

@@ -16,9 +16,11 @@ gem 'will_paginate-bootstrap'
 gem 'will_paginate-bootstrap4'
 gem 'devise' 
 
-gem 'bootstrap-sass' 
+gem 'bootstrap-sass', '~> 3.4.1'
+gem 'sassc-rails', '>= 2.1.0' 
 gem 'friendly_id', '~> 5.2.4'
 gem "websocket-extensions", ">= 0.1.5"
+gem 'acts_as_votable'
 
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
