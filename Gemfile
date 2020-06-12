@@ -21,6 +21,14 @@ gem 'sassc-rails', '>= 2.1.0'
 gem 'friendly_id', '~> 5.2.4'
 gem "websocket-extensions", ">= 0.1.5"
 gem 'acts_as_votable'
+gem 'public_activity'
+gem 'jquery-rails'
+gem 'barista'
+
+gem 'uglifier', '>= 1.3.0'
+gem 'coffee-rails'    
+gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'bootstrap-glyphicons'
 
 # Use Puma as the app server
 gem 'puma', '~> 4.1'

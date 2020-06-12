@@ -15,6 +15,7 @@
  */
  @import "bootstrap";
  @import "rails_bootstrap_forms"; 
+ @import 'bootstrap/glyphicons';
   
  .col-md-6.col-md-offset-3{
 
@@ -46,4 +47,9 @@
  }
  td a div {
     color: red;
+ }
+ body header div ul p{
+     border-radius: 10%;
+     margin-left: 15px;
+     background-color: red; 
  }

@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  
     protect_from_forgery with: :exception
     before_action :authenticate_user!
     before_action :forbid_user_vote!, only: [:vote]
@@ -12,6 +13,8 @@ class ApplicationController < ActionController::Base
 
     if instance.vote_registered?
       instance.set_carma(params[:vote], current_user)
+      message = params[:vote] == 'up' ? 'Liked your' : 'Disliked your'
+      instance.create_activity key: message, owner: current_user, recipient: instance.user
       flash[:notice] = 'Thanks for your vote!'
     else
       flash[:danger] = 'You\'ve already voted that post!'

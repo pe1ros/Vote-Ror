@@ -1,6 +1,7 @@
 class Phrase < ApplicationRecord 
     include SharedMethods
     extend FriendlyId
+    include PublicActivity::Model
     
     belongs_to :user
     has_many   :examples, dependent: :destroy

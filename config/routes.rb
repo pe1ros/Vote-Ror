@@ -17,6 +17,12 @@ Rails.application.routes.draw do
       post :vote
     end
   end 
+
+  resources :notifications, only: :index do
+    collection do
+      put :read_all
+    end
+  end
   
   get 'static_pages/hello'=> 'static_pages#hello'
 
