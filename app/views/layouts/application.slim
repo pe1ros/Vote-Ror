@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+     
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    = stylesheet_link_tag    "application", media: 'all', 'data-turbolinks-track' => true 
+    = javascript_pack_tag    "application", "data-turbolinks-track": "reload"
+    = csrf_meta_tags
+    = action_cable_meta_tag
+
+  body.container-fluid 
+      = render 'layouts/navbar'
+      .col-md-6.col-md-offset-3
+        - flash.each do |key, value|
+          div class="alert alert-#{key}"
+            = value
+
+        = yield
+
+      = render 'layouts/footer'

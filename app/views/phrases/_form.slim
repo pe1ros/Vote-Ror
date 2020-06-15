@@ -1,0 +1,26 @@
+ 
+= form_for(@phrase) do |f|
+  .form-group
+    = f.label :phrase
+    br
+    = f.text_field :phrase, :class => 'form-control'
+
+  .form-group
+    = f.label :translation
+    br
+    = f.text_field :translation, :class => 'form-control'
+
+  .form-group
+    = f.label :category
+    br
+    = f.select :category, Phrase::CATEGORIES.map{ |key, value| [key.humanize, key] }, {}, { :class => 'form-control' }
+  
+  - if @phrase.id.nil?
+    = f.fields_for :examples do |e|
+      .form-group
+        = e.label :example
+        br
+        = e.text_field :example, :class => 'form-control'
+        = e.hidden_field :user_id, :class => 'form-control'
+
+  = f.submit 'Submit', :class => 'btn btn-primary'

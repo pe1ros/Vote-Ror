@@ -1,0 +1,21 @@
+tr
+  td = phrase.id
+  td = link_to phrase.phrase, phrase_path(phrase)
+  td = phrase.translation
+  td = phrase.category
+  - if author
+    td = link_to phrase.user.username, user_path(phrase.user)
+  - else
+      - if phrase.is_author? current_user
+        td
+          = link_to 'edit', edit_phrase_path(phrase)
+          '  |
+          = link_to 'delete', phrase, class: 'delete_phrase', method: :delete
+
+  td
+    = link_to vote_phrase_path(phrase, vote: 'up'), method: :post do
+      div
+        p like
+    | #{ phrase.get_likes.size - phrase.get_dislikes.size > 0 ? phrase.get_likes.size : 0 }
+    = link_to vote_phrase_path(phrase, vote: 'down'), method: :post do
+      div    dislike
