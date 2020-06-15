@@ -60,6 +60,9 @@ class PhrasesController < ApplicationController
 
   def vote
     shared_vote(@phrase)
+    if (@phrase.get_likes.size % 5) == 0 
+      ApplicationMailer.item_vote(@phrase, @phrase.user.email).deliver_now
+    end
     redirect_back fallback_location: root_path
   end
 

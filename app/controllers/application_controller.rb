@@ -4,9 +4,9 @@ class ApplicationController < ActionController::Base
     before_action :authenticate_user!
     before_action :forbid_user_vote!, only: [:vote]
 
-  def shared_vote(instance)
+  def shared_vote(instance) 
     if params[:vote] == 'up'
-      instance.liked_by current_user
+      instance.liked_by current_user 
     else
       instance.downvote_from current_user
     end

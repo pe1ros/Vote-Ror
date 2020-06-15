@@ -25,7 +25,10 @@ class ExamplesController < ApplicationController
     end
     
     def vote
-      shared_vote(@example)
+      shared_vote(@example) 
+      if (@example.get_likes.size % 5) == 0 
+        ApplicationMailer.item_vote(@example, @example.user.email).deliver_now
+      end
       redirect_back fallback_location: root_path
     end
 
@@ -40,8 +43,8 @@ class ExamplesController < ApplicationController
     end
     def set_example!
 
-      @example = @phrase.examples.friendly.find(params[:id])
-      #@example = @phrase.examples.friendly.find(params[:example_id])
+      #@example = @phrase.examples.friendly.find(params[:id])
+      @example = @phrase.examples.friendly.find(params[:example_id])
     end
   
 end

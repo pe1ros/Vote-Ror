@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_many :examples
   
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :confirmable
 
   validates :username, presence: true
   validates :username, uniqueness: true
