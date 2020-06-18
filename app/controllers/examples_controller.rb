@@ -41,10 +41,8 @@ class ExamplesController < ApplicationController
     def set_phrase!
       @phrase = Phrase.friendly.find(params[:phrase_id])
     end
-    def set_example!
-
-      #@example = @phrase.examples.friendly.find(params[:id])
-      @example = @phrase.examples.friendly.find(params[:example_id])
+    def set_example!   
+       @example = @phrase.examples.friendly.find(params[:phrase_id]) 
     end
   
 end
